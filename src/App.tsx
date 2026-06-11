@@ -1,4 +1,4 @@
 
 export default function App() {
-  return <>Hello World</>
+  return <h1>Texto</h1>
 }
