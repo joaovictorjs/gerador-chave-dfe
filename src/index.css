@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
+@plugin 'daisyui';
 
 @theme {
   --font-sans: 'Poppins', sans-serif;
@@ -7,6 +8,6 @@
 
 @layer base {
   html {
-    @apply h-screen w-screen bg-neutral-900 text-[14px] text-neutral-100;
+    @apply h-screen w-screen text-[14px];
   }
 }

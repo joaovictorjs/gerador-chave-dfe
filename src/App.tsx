@@ -1,4 +1,3 @@
-
 export default function App() {
-  return <h1>Texto</h1>
+  return <button className="btn">Hello World</button>;
 }
