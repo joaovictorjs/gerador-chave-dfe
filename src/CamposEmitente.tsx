@@ -7,7 +7,7 @@ export default function CamposEmitente() {
   });
 
   return (
-    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box flex w-full min-w-0 flex-row gap-4 border p-4">
+    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box flex w-full min-w-0 flex-col gap-4 border p-4 sm:flex-row">
       <legend className="fieldset-legend">Emitente</legend>
 
       <div className="flex flex-1 flex-col">

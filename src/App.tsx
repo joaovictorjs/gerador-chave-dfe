@@ -4,14 +4,14 @@ import ChaveGerada from './ChaveGerada';
 
 export default function App() {
   return (
-    <div>
-      <form className="absolute top-1/2 left-1/2 flex w-2/5 -translate-1/2 flex-col gap-4">
+    <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-4 py-8">
+      <form className="flex w-full flex-col gap-4 xl:w-1/2">
         <CamposEmitente />
         <CamposDocumento />
         <ChaveGerada />
       </form>
 
-      <div className="absolute bottom-10 left-1/2 flex w-2/5 -translate-x-1/2 flex-col gap-2">
+      <div className="flex w-full flex-col gap-2 xl:w-1/2">
         <div role="alert" className="alert bg-base-100">
           <span>
             Os campos vazios serão preenchidos com dados aleatórios ao gerar a
@@ -19,7 +19,7 @@ export default function App() {
           </span>
         </div>
 
-        <div role="alert" className="alert bg-base-100">
+        <div role="alert" className="alert bg-base-100 hidden lg:block">
           <span>
             Pressione <kbd className="kbd">Ctrl</kbd> +{' '}
             <kbd className="kbd">Enter</kbd> para gerar e copiar uma chave de

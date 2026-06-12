@@ -8,6 +8,6 @@
 
 @layer base {
   html {
-    @apply h-screen w-screen text-[16px];
+    @apply h-dvh w-dvw text-[16px];
   }
 }
