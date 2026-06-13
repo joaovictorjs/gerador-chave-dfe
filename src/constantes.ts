@@ -34,3 +34,13 @@ export const modelos = [
   { codigo: 58, modelo: 'MDF-e' },
   { codigo: 65, modelo: 'NFC-e' },
 ];
+
+export const tiposEmissao = [
+  { codigo: 1, tipoEmissao: 'Emissão normal' },
+  { codigo: 2, tipoEmissao: 'Contingência FS-IA' },
+  { codigo: 3, tipoEmissao: 'Contingência SCAN' },
+  { codigo: 4, tipoEmissao: 'Contingência DPEC' },
+  { codigo: 5, tipoEmissao: 'Contingência FS-DA' },
+  { codigo: 6, tipoEmissao: 'Contingência SVC-AN' },
+  { codigo: 7, tipoEmissao: 'Contingência SVC-RS' },
+];

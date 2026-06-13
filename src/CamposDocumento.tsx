@@ -1,8 +1,8 @@
-import { modelos } from './constantes';
+import { modelos, tiposEmissao } from './constantes';
 
 export default function CamposDocumento() {
   return (
-    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box grid w-full min-w-0 grid-cols-2 gap-4 border p-4 sm:grid-cols-4">
+    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box grid w-full min-w-0 grid-cols-2 grid-rows-3 gap-4 border p-4 sm:grid-cols-3 sm:grid-rows-2">
       <legend className="fieldset-legend">Documento</legend>
 
       <div>
@@ -46,6 +46,24 @@ export default function CamposDocumento() {
           className="input w-full"
           type="date"
         ></input>
+      </div>
+
+      <div>
+        <label htmlFor="cNF">Código da nota</label>
+        <input name="cNF" id="cNF" className="input w-full"></input>
+      </div>
+
+      <div>
+        <label htmlFor="tpEmis">Tipo de emissão</label>
+        <select name="tpEmis " id="tpEmis" className="select w-full">
+          <option disabled selected value="" className="truncate">
+            Selecione o tipo de emissão
+          </option>
+
+          {tiposEmissao.map((tipo) => (
+            <option value={tipo.codigo}>{tipo.tipoEmissao}</option>
+          ))}
+        </select>
       </div>
     </fieldset>
   );
