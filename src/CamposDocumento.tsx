@@ -1,3 +1,5 @@
+import { modelos } from './constantes';
+
 export default function CamposDocumento() {
   return (
     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box grid w-full min-w-0 grid-cols-2 gap-4 border p-4 sm:grid-cols-4">
@@ -10,10 +12,9 @@ export default function CamposDocumento() {
             Selecione o modelo
           </option>
 
-          <option value="55">NF-e</option>
-          <option value="57">CT-e</option>
-          <option value="58">MDF-e</option>
-          <option value="65">NFC-e</option>
+          {modelos.map((modelo) => (
+            <option value={modelo.codigo}>{modelo.modelo}</option>
+          ))}
         </select>
       </div>
 
