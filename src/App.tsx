@@ -7,7 +7,10 @@ export default function App() {
   return (
     <AppProvedor>
       <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-4 py-8">
-        <form className="flex w-full flex-col gap-4 xl:w-1/2">
+        <form
+          className="flex w-full flex-col gap-4 xl:w-1/2"
+          onSubmit={(e) => e.preventDefault()}
+        >
           <CamposEmitente />
           <CamposDocumento />
           <ChaveGerada />
