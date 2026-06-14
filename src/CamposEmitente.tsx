@@ -1,7 +1,10 @@
 import { useMask } from '@react-input/mask';
 import { estados } from './constantes';
+import { useAppContexto } from './contextos/appContexto';
 
 export default function CamposEmitente() {
+  const { cnpj, setCnpj, uf, setUf } = useAppContexto();
+
   const cnpjRef = useMask({
     mask: '__.___.___/____-++',
     replacement: { '+': /\d/, _: /\w/ },
@@ -20,12 +23,20 @@ export default function CamposEmitente() {
           type="text"
           className="input w-full"
           placeholder=""
+          value={cnpj}
+          onChange={(e) => setCnpj(e.target.value)}
         />
       </div>
 
       <div className="flex flex-1 flex-col">
         <label htmlFor="uf">Estado</label>
-        <select name="uf" id="uf" className="select w-full">
+        <select
+          name="uf"
+          id="uf"
+          className="select w-full"
+          value={uf ?? ''}
+          onChange={(e) => setUf(e.target.value ? Number(e.target.value) : null)}
+        >
           {estados.map((estado) => (
             <option value={estado.codigo}>{estado.uf}</option>
           ))}

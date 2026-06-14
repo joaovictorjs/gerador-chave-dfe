@@ -14,7 +14,7 @@ type TipoAppContexto = {
   data: string;
   setData: (v: string) => void;
   codigoNota: number | null;
-  setCodigoNota: (v: number) => void;
+  setCodigoNota: (v: number | null) => void;
   tipoEmissao: number | null;
   setTipoEmissao: (v: number | null) => void;
   chave: string;

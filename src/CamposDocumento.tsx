@@ -1,15 +1,37 @@
 import { modelos, tiposEmissao } from './constantes';
+import { useAppContexto } from './contextos/appContexto';
 
 export default function CamposDocumento() {
+  const {
+    modelo,
+    setModelo,
+    serie,
+    setSerie,
+    numero,
+    setNumero,
+    data,
+    setData,
+    codigoNota,
+    setCodigoNota,
+    tipoEmissao,
+    setTipoEmissao,
+  } = useAppContexto();
+
   return (
     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box grid w-full min-w-0 grid-cols-2 grid-rows-3 gap-4 border p-4 sm:grid-cols-3 sm:grid-rows-2">
       <legend className="fieldset-legend">Documento</legend>
 
       <div>
         <label htmlFor="modelo">Modelo</label>
-        <select name="modelo" id="modelo" className="select w-full">
-          {modelos.map((modelo) => (
-            <option value={modelo.codigo}>{modelo.modelo}</option>
+        <select
+          name="modelo"
+          id="modelo"
+          className="select w-full"
+          value={modelo ?? ''}
+          onChange={(e) => setModelo(e.target.value ? Number(e.target.value) : null)}
+        >
+          {modelos.map((m) => (
+            <option value={m.codigo}>{m.modelo}</option>
           ))}
         </select>
       </div>
@@ -21,7 +43,9 @@ export default function CamposDocumento() {
           id="serie"
           className="input w-full"
           type="number"
-        ></input>
+          value={serie ?? ''}
+          onChange={(e) => setSerie(e.target.value ? Number(e.target.value) : null)}
+        />
       </div>
 
       <div>
@@ -31,7 +55,9 @@ export default function CamposDocumento() {
           id="numero"
           className="input w-full"
           type="number"
-        ></input>
+          value={numero ?? ''}
+          onChange={(e) => setNumero(e.target.value ? Number(e.target.value) : null)}
+        />
       </div>
 
       <div>
@@ -41,17 +67,35 @@ export default function CamposDocumento() {
           id="data"
           className="input w-full"
           type="date"
-        ></input>
+          value={data}
+          onChange={(e) => setData(e.target.value)}
+        />
       </div>
 
       <div>
         <label htmlFor="cNF">Código da nota</label>
-        <input name="cNF" id="cNF" className="input w-full"></input>
+        <input
+          name="cNF"
+          id="cNF"
+          className="input w-full"
+          value={codigoNota ?? ''}
+          onChange={(e) =>
+            setCodigoNota(e.target.value ? Number(e.target.value) : null)
+          }
+        />
       </div>
 
       <div>
         <label htmlFor="tpEmis">Tipo de emissão</label>
-        <select name="tpEmis " id="tpEmis" className="select w-full">
+        <select
+          name="tpEmis"
+          id="tpEmis"
+          className="select w-full"
+          value={tipoEmissao ?? ''}
+          onChange={(e) =>
+            setTipoEmissao(e.target.value ? Number(e.target.value) : null)
+          }
+        >
           {tiposEmissao.map((tipo) => (
             <option value={tipo.codigo}>{tipo.tipoEmissao}</option>
           ))}
