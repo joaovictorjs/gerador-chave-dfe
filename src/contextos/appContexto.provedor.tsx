@@ -7,11 +7,13 @@ export default function AppContextoProvedor({
   children: ReactNode;
 }) {
   const [cnpj, setCnpj] = useState('');
-  const [uf, setUf] = useState<number | ''>('');
-  const [modelo, setModelo] = useState<number | ''>('');
-  const [serie, setSerie] = useState<number | ''>('');
-  const [numero, setNumero] = useState<number | ''>('');
+  const [uf, setUf] = useState<number | null>(null);
+  const [modelo, setModelo] = useState<number | null>(null);
+  const [serie, setSerie] = useState<number | null>(null);
+  const [numero, setNumero] = useState<number | null>(null);
   const [data, setData] = useState('');
+  const [codigoNota, setCodigoNota] = useState<number | null>(null);
+  const [tipoEmissao, setTipoEmissao] = useState<number | null>(null);
   const [chave, setChave] = useState('');
 
   return (
@@ -29,6 +31,10 @@ export default function AppContextoProvedor({
         setNumero,
         data,
         setData,
+        codigoNota,
+        setCodigoNota,
+        tipoEmissao,
+        setTipoEmissao,
         chave,
         setChave,
       }}
