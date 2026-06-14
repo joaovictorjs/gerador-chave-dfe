@@ -30,7 +30,7 @@ export default function ChaveGerada() {
 
     const chave = gerarChaveAcesso({
       cUF: uf,
-      aamm: data,
+      aamm: data.slice(2, 4) + data.slice(5, 7),
       cnpj: cnpj,
       modelo: modelo.toString(),
       serie: serie,
