@@ -26,9 +26,6 @@ export default function CamposEmitente() {
       <div className="flex flex-1 flex-col">
         <label htmlFor="uf">Estado</label>
         <select name="uf" id="uf" className="select w-full">
-          <option selected disabled value="">
-            Selecione o estado
-          </option>
           {estados.map((estado) => (
             <option value={estado.codigo}>{estado.uf}</option>
           ))}

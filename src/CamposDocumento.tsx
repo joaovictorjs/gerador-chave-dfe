@@ -8,10 +8,6 @@ export default function CamposDocumento() {
       <div>
         <label htmlFor="modelo">Modelo</label>
         <select name="modelo" id="modelo" className="select w-full">
-          <option disabled selected value="" className="truncate">
-            Selecione o modelo
-          </option>
-
           {modelos.map((modelo) => (
             <option value={modelo.codigo}>{modelo.modelo}</option>
           ))}
@@ -56,10 +52,6 @@ export default function CamposDocumento() {
       <div>
         <label htmlFor="tpEmis">Tipo de emissão</label>
         <select name="tpEmis " id="tpEmis" className="select w-full">
-          <option disabled selected value="" className="truncate">
-            Selecione o tipo de emissão
-          </option>
-
           {tiposEmissao.map((tipo) => (
             <option value={tipo.codigo}>{tipo.tipoEmissao}</option>
           ))}
