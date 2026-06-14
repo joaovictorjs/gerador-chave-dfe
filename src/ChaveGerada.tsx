@@ -13,6 +13,7 @@ export default function ChaveGerada() {
     tipoEmissao,
     codigoNota,
     setChave,
+    chave,
   } = useAppContexto();
 
   useEffect(() => {
@@ -57,7 +58,7 @@ export default function ChaveGerada() {
       <legend className="fieldset-legend">Chave gerada</legend>
 
       <div className="input w-full">
-        <input name="chave" id="chave" readOnly />
+        <input name="chave" id="chave" readOnly value={chave} />
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
