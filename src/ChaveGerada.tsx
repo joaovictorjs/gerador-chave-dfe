@@ -1,4 +1,57 @@
+import { useEffect } from 'react';
+import { useAppContexto } from './contextos/appContexto';
+import { gerarChaveAcesso } from './utils';
+
 export default function ChaveGerada() {
+  const {
+    uf,
+    data,
+    cnpj,
+    modelo,
+    serie,
+    numero,
+    tipoEmissao,
+    codigoNota,
+    setChave,
+  } = useAppContexto();
+
+  useEffect(() => {
+    if (
+      !uf ||
+      !data ||
+      !cnpj ||
+      !modelo ||
+      !serie ||
+      !numero ||
+      !tipoEmissao ||
+      !codigoNota
+    )
+      return;
+
+    const chave = gerarChaveAcesso({
+      cUF: uf,
+      aamm: data,
+      cnpj: cnpj,
+      modelo: modelo.toString(),
+      serie: serie,
+      numero: numero,
+      tpEmis: tipoEmissao,
+      cNF: codigoNota,
+    });
+
+    setChave(chave);
+  }, [
+    uf,
+    data,
+    cnpj,
+    modelo,
+    serie,
+    numero,
+    tipoEmissao,
+    codigoNota,
+    setChave,
+  ]);
+
   return (
     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box flex w-full min-w-0 flex-row gap-4 border p-4">
       <legend className="fieldset-legend">Chave gerada</legend>

@@ -25,9 +25,7 @@ export function obterDataAtual(): string {
 }
 export function calcularDigitoVerificador(chaveSemDv: string): number {
   if (!chaveSemDv || !/^\d{43}$/.test(chaveSemDv)) {
-    throw new Error(
-      "A chave deve conter exatamente 43 dígitos numéricos.",
-    );
+    throw new Error('A chave deve conter exatamente 43 dígitos numéricos.');
   }
 
   let soma = 0;
@@ -69,13 +67,13 @@ export function gerarChaveAcesso(dados: DadosChaveAcesso): string {
 
 function montarChaveSemDv(dados: DadosChaveAcesso): string {
   return (
-    dados.cUF.toString().padStart(2, "0") +
+    dados.cUF.toString().padStart(2, '0') +
     dados.aamm +
-    dados.cnpj.padStart(14, "0") +
+    dados.cnpj.padStart(14, '0') +
     dados.modelo +
-    dados.serie.toString().padStart(3, "0") +
-    dados.numero.toString().padStart(9, "0") +
+    dados.serie.toString().padStart(3, '0') +
+    dados.numero.toString().padStart(9, '0') +
     dados.tpEmis +
-    dados.cNF.toString().padStart(8, "0")
+    dados.cNF.toString().padStart(8, '0')
   );
 }
