@@ -1,4 +1,4 @@
-import { modelos, tiposEmissao } from './constantes';
+import { modelos, tiposEmissao, numeroSerieMaximo, numeroMaximo, codigoNotaMaximo } from './constantes';
 import { useAppContexto } from './contextos/appContexto';
 
 export default function CamposDocumento() {
@@ -28,7 +28,9 @@ export default function CamposDocumento() {
           id="modelo"
           className="select w-full"
           value={modelo ?? ''}
-          onChange={(e) => setModelo(e.target.value ? Number(e.target.value) : null)}
+          onChange={(e) =>
+            setModelo(e.target.value ? Number(e.target.value) : null)
+          }
         >
           {modelos.map((m) => (
             <option value={m.codigo}>{m.modelo}</option>
@@ -43,8 +45,13 @@ export default function CamposDocumento() {
           id="serie"
           className="input w-full"
           type="number"
+          min={0}
+          max={numeroSerieMaximo}
           value={serie ?? ''}
-          onChange={(e) => setSerie(e.target.value ? Number(e.target.value) : null)}
+          onChange={(e) => {
+            if (!e.target.value) return setSerie(null);
+            setSerie(Math.min(Number(e.target.value), numeroSerieMaximo));
+          }}
         />
       </div>
 
@@ -55,8 +62,13 @@ export default function CamposDocumento() {
           id="numero"
           className="input w-full"
           type="number"
+          min={0}
+          max={numeroMaximo}
           value={numero ?? ''}
-          onChange={(e) => setNumero(e.target.value ? Number(e.target.value) : null)}
+          onChange={(e) => {
+            if (!e.target.value) return setNumero(null);
+            setNumero(Math.min(Number(e.target.value), numeroMaximo));
+          }}
         />
       </div>
 
@@ -78,10 +90,14 @@ export default function CamposDocumento() {
           name="cNF"
           id="cNF"
           className="input w-full"
+          type="number"
+          min={0}
+          max={codigoNotaMaximo}
           value={codigoNota ?? ''}
-          onChange={(e) =>
-            setCodigoNota(e.target.value ? Number(e.target.value) : null)
-          }
+          onChange={(e) => {
+            if (!e.target.value) return setCodigoNota(null);
+            setCodigoNota(Math.min(Number(e.target.value), codigoNotaMaximo));
+          }}
         />
       </div>
 

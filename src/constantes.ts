@@ -44,3 +44,7 @@ export const tiposEmissao = [
   { codigo: 6, tipoEmissao: 'Contingência SVC-AN' },
   { codigo: 7, tipoEmissao: 'Contingência SVC-RS' },
 ];
+
+export const numeroSerieMaximo = 9999;
+export const numeroMaximo = 999999999;
+export const codigoNotaMaximo = 99999999;
