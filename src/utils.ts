@@ -23,9 +23,10 @@ export function obterDataAtual(): string {
   const agora = new Date();
   return agora.toISOString().split('T')[0];
 }
+
 export function calcularDigitoVerificador(chaveSemDv: string): number {
   if (!chaveSemDv || !/^\d{43}$/.test(chaveSemDv)) {
-    throw new Error('A chave deve conter exatamente 43 dígitos numéricos.');
+    return 0;
   }
 
   let soma = 0;
