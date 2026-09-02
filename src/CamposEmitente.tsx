@@ -1,5 +1,5 @@
 import { useMask } from '@react-input/mask';
-import { estados } from './constantes';
+import { ESTADOS } from './constantes';
 import { useAppContexto } from './contextos/appContexto';
 
 export default function CamposEmitente() {
@@ -35,9 +35,11 @@ export default function CamposEmitente() {
           id="uf"
           className="select w-full"
           value={uf ?? ''}
-          onChange={(e) => setUf(e.target.value ? Number(e.target.value) : null)}
+          onChange={(e) =>
+            setUf(e.target.value ? Number(e.target.value) : null)
+          }
         >
-          {estados.map((estado) => (
+          {ESTADOS.map((estado) => (
             <option value={estado.codigo}>{estado.uf}</option>
           ))}
         </select>

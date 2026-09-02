@@ -1,4 +1,4 @@
-export const estados = [
+export const ESTADOS = [
   { codigo: 12, uf: 'Acre' },
   { codigo: 27, uf: 'Alagoas' },
   { codigo: 16, uf: 'Amapá' },
@@ -28,14 +28,14 @@ export const estados = [
   { codigo: 17, uf: 'Tocantins' },
 ];
 
-export const modelos = [
+export const MODELOS = [
   { codigo: 55, modelo: 'NF-e' },
   { codigo: 57, modelo: 'CT-e' },
   { codigo: 58, modelo: 'MDF-e' },
   { codigo: 65, modelo: 'NFC-e' },
 ];
 
-export const tiposEmissao = [
+export const TIPOS_EMISSAO = [
   { codigo: 1, tipoEmissao: 'Emissão normal' },
   { codigo: 2, tipoEmissao: 'Contingência FS-IA' },
   { codigo: 3, tipoEmissao: 'Contingência SCAN' },
@@ -45,6 +45,6 @@ export const tiposEmissao = [
   { codigo: 7, tipoEmissao: 'Contingência SVC-RS' },
 ];
 
-export const numeroSerieMaximo = 999;
-export const numeroMaximo = 999999999;
-export const codigoNotaMaximo = 99999999;
+export const NUM_SERIE_MAX = 999;
+export const NUM_MAX = 999999999;
+export const COD_NOTA_MAX = 99999999;

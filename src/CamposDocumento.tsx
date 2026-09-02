@@ -1,4 +1,10 @@
-import { modelos, tiposEmissao, numeroSerieMaximo, numeroMaximo, codigoNotaMaximo } from './constantes';
+import {
+  COD_NOTA_MAX,
+  MODELOS,
+  NUM_MAX,
+  NUM_SERIE_MAX,
+  TIPOS_EMISSAO,
+} from './constantes';
 import { useAppContexto } from './contextos/appContexto';
 
 export default function CamposDocumento() {
@@ -32,7 +38,7 @@ export default function CamposDocumento() {
             setModelo(e.target.value ? Number(e.target.value) : null)
           }
         >
-          {modelos.map((m) => (
+          {MODELOS.map((m) => (
             <option value={m.codigo}>{m.modelo}</option>
           ))}
         </select>
@@ -46,11 +52,11 @@ export default function CamposDocumento() {
           className="input w-full"
           type="number"
           min={0}
-          max={numeroSerieMaximo}
+          max={NUM_SERIE_MAX}
           value={serie ?? ''}
           onChange={(e) => {
             if (!e.target.value) return setSerie(null);
-            setSerie(Math.min(Number(e.target.value), numeroSerieMaximo));
+            setSerie(Math.min(Number(e.target.value), NUM_SERIE_MAX));
           }}
         />
       </div>
@@ -63,11 +69,11 @@ export default function CamposDocumento() {
           className="input w-full"
           type="number"
           min={0}
-          max={numeroMaximo}
+          max={NUM_MAX}
           value={numero ?? ''}
           onChange={(e) => {
             if (!e.target.value) return setNumero(null);
-            setNumero(Math.min(Number(e.target.value), numeroMaximo));
+            setNumero(Math.min(Number(e.target.value), NUM_MAX));
           }}
         />
       </div>
@@ -92,11 +98,11 @@ export default function CamposDocumento() {
           className="input w-full"
           type="number"
           min={0}
-          max={codigoNotaMaximo}
+          max={COD_NOTA_MAX}
           value={codigoNota ?? ''}
           onChange={(e) => {
             if (!e.target.value) return setCodigoNota(null);
-            setCodigoNota(Math.min(Number(e.target.value), codigoNotaMaximo));
+            setCodigoNota(Math.min(Number(e.target.value), COD_NOTA_MAX));
           }}
         />
       </div>
@@ -112,7 +118,7 @@ export default function CamposDocumento() {
             setTipoEmissao(e.target.value ? Number(e.target.value) : null)
           }
         >
-          {tiposEmissao.map((tipo) => (
+          {TIPOS_EMISSAO.map((tipo) => (
             <option value={tipo.codigo}>{tipo.tipoEmissao}</option>
           ))}
         </select>

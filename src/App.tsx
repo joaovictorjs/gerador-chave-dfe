@@ -2,12 +2,12 @@ import CamposDocumento from './CamposDocumento';
 import CamposEmitente from './CamposEmitente';
 import ChaveGerada from './ChaveGerada';
 import {
-  codigoNotaMaximo,
-  estados,
-  modelos,
-  numeroMaximo,
-  numeroSerieMaximo,
-  tiposEmissao,
+  COD_NOTA_MAX,
+  ESTADOS,
+  MODELOS,
+  NUM_MAX,
+  NUM_SERIE_MAX,
+  TIPOS_EMISSAO,
 } from './constantes';
 import { useAppContexto } from './contextos/appContexto';
 import { gerarCnpj, obterDataAtual, obterItemAleatorio } from './utils';
@@ -17,13 +17,13 @@ export default function App() {
 
   const aleatorizarCampos = () => {
     const cnpj = gerarCnpj();
-    const uf = obterItemAleatorio(estados);
-    const modelo = obterItemAleatorio(modelos);
-    const serie = Math.floor(Math.random() * numeroSerieMaximo + 1);
-    const numero = Math.floor(Math.random() * numeroMaximo + 1);
+    const uf = obterItemAleatorio(ESTADOS);
+    const modelo = obterItemAleatorio(MODELOS);
+    const serie = Math.floor(Math.random() * NUM_SERIE_MAX + 1);
+    const numero = Math.floor(Math.random() * NUM_MAX + 1);
     const dataEmissao = obterDataAtual();
-    const codigoNota = Math.floor(Math.random() * codigoNotaMaximo + 1);
-    const tipoEmissao = obterItemAleatorio(tiposEmissao);
+    const codigoNota = Math.floor(Math.random() * COD_NOTA_MAX + 1);
+    const tipoEmissao = obterItemAleatorio(TIPOS_EMISSAO);
 
     contexto.setCnpj(cnpj);
     contexto.setUf(uf);
