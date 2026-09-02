@@ -10,13 +10,17 @@ import {
   TIPOS_EMISSAO,
 } from './constantes';
 import { useAppContexto } from './contextos/appContexto';
-import { gerarCnpj, obterDataAtual, obterItemAleatorio } from './utils';
+import {
+  gerarCnpjFormatado,
+  obterDataAtual,
+  obterItemAleatorio,
+} from './utils';
 
 export default function App() {
   const contexto = useAppContexto();
 
   const aleatorizarCampos = () => {
-    const cnpj = gerarCnpj();
+    const cnpj = gerarCnpjFormatado();
     const uf = obterItemAleatorio(ESTADOS);
     const modelo = obterItemAleatorio(MODELOS);
     const serie = Math.floor(Math.random() * NUM_SERIE_MAX + 1);

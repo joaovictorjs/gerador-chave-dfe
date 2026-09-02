@@ -6,12 +6,41 @@ export function atribuirValorSeNecessario(
   campo.value = valor.toString();
 }
 
-export function gerarCnpj() {
-  let cnpj = '';
-  for (let i = 0; i < 14; i++) {
-    cnpj += Math.floor(Math.random() * 10);
+function calcularDvCnpj(cnpjBase: string): string {
+  const digitos = cnpjBase.split('').map(Number);
+
+  const peso1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+  const soma1 = digitos.reduce(
+    (acumulador, digito, i) => acumulador + digito * peso1[i],
+    0,
+  );
+  const resto1 = soma1 % 11;
+  const dv1 = resto1 < 2 ? 0 : 11 - resto1;
+
+  const pesos2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+  const soma2 = [...digitos, dv1].reduce(
+    (acumulador, digito, i) => acumulador + digito * pesos2[i],
+    0,
+  );
+  const resto2 = soma2 % 11;
+  const dv2 = resto2 < 2 ? 0 : 11 - resto2;
+
+  return `${dv1}${dv2}`;
+}
+
+export function gerarCnpj(): string {
+  let cnpjBase = '';
+  for (let i = 0; i < 12; i++) {
+    cnpjBase += Math.floor(Math.random() * 10);
   }
-  return cnpj;
+
+  const dv = calcularDvCnpj(cnpjBase);
+  return cnpjBase + dv;
+}
+
+export function gerarCnpjFormatado(): string {
+  const cnpj = gerarCnpj();
+  return cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
 }
 
 export function obterItemAleatorio(colecao: { codigo: number }[]): number {
